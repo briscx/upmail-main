@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,session
+from flask import Flask, render_template, request
 import smtplib
 from email.mime.text import MIMEText
 import random
@@ -12,7 +12,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        if username == 'your-example@gmail.com' and password == '1234':
+        if username == '' and password == '':
             # Genera casualmente la OTP
             otp = generate_otp()
 
@@ -25,7 +25,7 @@ def login():
             # Reindirizza l'utente alla pagina di verifica dell'OTP
             return render_template('verify_otp.html')
 
-    return render_template('login.html')
+    return render_template('login2.html')
 
 @app.route('/verify', methods=['POST'])
 def verify():
@@ -52,10 +52,10 @@ def send_otp_email(email, otp):
     # Implementa qui il codice per inviare l'OTP all'indirizzo email specificato
     # Esempio: utilizzo di una stampa di log per simulare l'invio dell'email
     # Configurazione delle informazioni del server SMTP
-    smtp_host = 'smtp.gmail.com'
+    smtp_host = ''
     smtp_port = 587
-    smtp_username = 'your-example@gmail.com'
-    smtp_password = 'google-app-password'
+    smtp_username = ''
+    smtp_password = ''
 
     # Creazione del messaggio email
     message = MIMEText(f"La tua One Time Password (OTP) è: {otp}")
