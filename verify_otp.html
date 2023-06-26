@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify OTP</title>
+</head>
+<body>
+    <h1>Verify OTP</h1>
+    <p>OTP code has been sent to your email. Please enter the code below:</p>
+    <form method="POST" action="/verify-otp?otp_code={{ otp_code }}&username={{ username }}">
+        <label for="otp">OTP Code:</label>
+        <input type="text" id="otp" name="otp" required><br>
+        <input type="submit" value="Verify">
+    </form>
+</body>
+</html>
