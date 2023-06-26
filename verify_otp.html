@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Verify OTP</title>
+    <title>Verifica OTP</title>
 </head>
 <body>
-    <h1>Verify OTP</h1>
-    <p>OTP code has been sent to your email. Please enter the code below:</p>
-    <form method="POST" action="/verify-otp?otp_code={{ otp_code }}&username={{ username }}">
-        <label for="otp">OTP Code:</label>
-        <input type="text" id="otp" name="otp" required><br>
-        <input type="submit" value="Verify">
+    <h1>Verifica OTP</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <form method="POST" action="/verify">
+        <input type="text" name="username" placeholder="Nome utente" required>
+        <input type="text" name="otp" placeholder="OTP" required>
+        <button type="submit">Verifica</button>
     </form>
 </body>
 </html>
